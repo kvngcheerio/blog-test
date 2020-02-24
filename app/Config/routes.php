@@ -38,6 +38,8 @@
 	Router::connect('/login', array('controller' => 'users', 'action' => 'login'));
 	Router::connect('/logout', array('controller' => 'users', 'action' => 'logout'));
 	Router::connect('/admin', array('controller' => 'users', 'action' => 'index', 'admin' => true));
+	Router::connect('/posts', array('controller' => 'users', 'action' => 'index'));
+	Router::connect('/my-posts', array('controller' => 'users', 'action' => 'index'));
 
 
 

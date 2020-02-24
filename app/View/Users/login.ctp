@@ -1,4 +1,4 @@
-<!-- <div class="loginn">
+<div class="loginn">
 <h3 class="text-center">Login Your Account</h3>
 <?php echo $this->Session->flash('auth'); ?>
 
@@ -16,16 +16,8 @@
 <button type="submit" value="submit" class="submit-btn" >Login</button>
 <a class="pull-right" href="register">Dont have and account?? Register</a>
 </form>
-</div> -->
+</div> 
 
-<div class="users form">
-<?php echo $this->Session->flash('auth'); ?>
-<?php echo $this->Form->create('User'); ?>
-    <fieldset>
-        <legend><?php echo __('Please enter your username and password'); ?></legend>
-        <?php echo $this->Form->input('username');
-        echo $this->Form->input('password');
-    ?>
-    </fieldset>
-<?php echo $this->Form->end(__('Login')); ?>
-</div>
+
+
+

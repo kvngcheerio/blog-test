@@ -1,7 +1,3 @@
-<a class="submit-btn pull-right" href="user/register">Register</a>&nbsp;&nbsp;<a href="user/login" class="submit-btn pull-right">Login</a>
-<br>
-<br>
-<br>
 <!-- body -->
 <div class="row">
 <div class="col-md-8">

@@ -13,29 +13,46 @@ class UsersController extends AppController {
     );
     
 
-    public function beforeFilter() {
-        parent::beforeFilter();
-        $this->Auth->allow('login','add','register'); 
-    }
+    // public function beforeFilter() {
+    //     parent::beforeFilter();
+    //     $this->Auth->allow('login','add','register'); 
+    // }
      
  
  
+    // public function login() {
+         
+    //     //if already logged-in, redirect
+    //     if($this->Session->check('Auth.User')){
+    //         $this->redirect(array('action' => 'index'));      
+    //     }
+         
+    //     // if we get the post information, try to authenticate
+    //     if ($this->request->is('post')) {
+    //         if ($this->Auth->login()) {
+    //            $this->Session->setFlash(__('Welcome, '. $this->Auth->user('username')));
+    //             //$this->Flash->success(__('Welcome, '. $this->Auth->user('username')));
+    //             $this->redirect($this->Auth->redirectUrl());
+    //         } else {
+    //             $this->Session->setFlash(__('Invalid password'));
+    //         }
+    //     } 
+    // }
+
     public function login() {
-         
-        //if already logged-in, redirect
-        if($this->Session->check('Auth.User')){
-            $this->redirect(array('action' => 'index'));      
-        }
-         
-        // if we get the post information, try to authenticate
         if ($this->request->is('post')) {
+            // Important: Use login() without arguments! See warning below.
             if ($this->Auth->login()) {
-                $this->Session->setFlash(__('Welcome, '. $this->Auth->user('username')));
-                $this->redirect($this->Auth->redirectUrl());
-            } else {
-                $this->Session->setFlash(__('Invalid username or password'));
+                return $this->redirect($this->Auth->redirectUrl());
+                // Prior to 2.3 use
+                // `return $this->redirect($this->Auth->redirect());`
             }
-        } 
+            $this->Flash->error(
+                __('Username or password is incorrect')
+            );
+            // Prior to 2.7 use
+            // $this->Session->setFlash(__('Username or password is incorrect'));
+        }
     }
  
     public function logout() {
