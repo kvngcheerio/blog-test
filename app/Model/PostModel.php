@@ -22,6 +22,12 @@ class Post extends AppModel {
                 'message' => 'Please select a valid category',
                 'allowEmpty' => false
             )
-        )
+            ),
+        'created_by' => array(
+            'required' => array(
+                'rule' => 'notBlank',
+                'message' => 'You must be logged in'
+            )
+        ),
     );
 }
